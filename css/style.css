@@ -8,6 +8,7 @@
     --bg-button-color: #404BBF;
     --footer-text-color: #E7E9FC;
     --footer-background-color:  #2E2F42;
+    --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 
@@ -119,27 +120,54 @@ align-items: center;
 }
 
 .link {
+    position: relative;
+    
     display: flex;
     padding-top: 24px;
     padding-bottom: 24px;
+
+    transition: var(--transition-dur-and-func);
 }
 
-.site-nav .link {
+.current::after {
+    content:'';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--bg-button-color);
+    border-radius: 2px;
+    bottom: 0;
+    left: 0;
+}
+
+
+.current {
+    color: var(--bg-button-color);
+}
+
+.current:hover, .current:focus {
+    color: var(--bg-button-color);
+}
+
+.site-nav {
 
 color: var(--primary-text-color);
 
 font-weight: 700;
 font-size: 16px;
 line-height: 1.5;
+
+transition: color var(--transition-dur-and-func);
 }
 
-.site-nav .link:focus, .site-nav .link:hover {
+.site-nav:focus, .site-nav:hover {
     color: var(--secondary-text-color)
 }
 
-.site-nav :active {
+/* .site-nav :active {
     color: var(--special-text-color);
-}
+} */
 
 .auth-nav{
     display: flex;
@@ -155,6 +183,8 @@ line-height: 1.5;
     color: var(--secondary-text-color);
     font-size: 16px;
     line-height: 1.5;
+
+    transition: color var(--transition-dur-and-func);
 }
 
 .auth-nav a:hover, .auth-nav a:focus {
@@ -213,6 +243,9 @@ line-height: 1.5;
     cursor: pointer;
     font-family: inherit;
     font-size: 16px;
+
+    transition: background-color var(--transition-dur-and-func),
+    color var(--transition-dur-and-func), box-shadow var(--transition-dur-and-func);
 }
 
 
@@ -333,6 +366,8 @@ line-height: 1.5;
     height: 40px;
     background-color: var(--special-text-color);
     border-radius: 50%;
+
+    transition: background-color var(--transition-dur-and-func);
 }
 
 .social-team-link{
@@ -388,12 +423,15 @@ margin-bottom: 72px;
     color: #8E8F99;
     border: 1px solid #8E8F99;
     border-radius: 4px;
+
+    transition: border var(--transition-dur-and-func);
     
 }
 
 .costumers-icon {
 
 fill: #8e8f99;
+transition: fill var(--transition-dur-and-func);
 }
 .icon-a:hover .costumers-icon,
 .icon-a:focus .costumers-icon {
@@ -479,13 +517,6 @@ color: var(--white-color);
     gap: 16px;
 }
 
-/*.footer-media-item {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-}*/
-
 .footer-media-icon {
     margin: 8px 8px;
     fill: var(--portfolio-button-color);
@@ -499,6 +530,8 @@ color: var(--white-color);
    border-radius: 50%;
    justify-content: center;
    align-items: center;
+
+   transition: background-color var(--transition-dur-and-func);
 
 }
 
@@ -542,6 +575,9 @@ color: var(--white-color);
     font-size: 16px;
     cursor: pointer;
     background-color:  var(--portfolio-button-color);
+    
+    transition: background-color var(--transition-dur-and-func),
+    color var(--transition-dur-and-func), box-shadow var(--transition-dur-and-func);
 }
 
 .portfolio-button:hover, 
@@ -549,6 +585,7 @@ color: var(--white-color);
      color: var(--white-color);
      background-color: var(--special-text-color);
      box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+      
 }
 
 .portfolio-list {
@@ -568,7 +605,7 @@ color: var(--white-color);
 .list-item {
     flex-basis: calc( (100%/ - 24px) /3);
    
-
+     transition: box-shadow var(--transition-dur-and-func);
     
 }
 
@@ -670,9 +707,10 @@ color: var(--portfolio-button-color);
     height: 100%;
     background-color: rgba(46, 47, 66, 0.4);;
     
+    transition: opacity var(--transition-dur-and-func), visibility var(--transition-dur-and-func);
 }
 
-.backdrop .is-hidden {
+.backdrop.is-hidden {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
@@ -707,12 +745,12 @@ color: var(--portfolio-button-color);
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0;
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transition-dur-and-func);
 
 }
 
 .modal-close-btn-icon {
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill var(--transition-dur-and-func);
 }
 
 .modal-close-button:hover,
